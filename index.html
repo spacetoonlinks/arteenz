@@ -120,6 +120,12 @@ button {
   </head>
   <body>
   <div style="text-align: center;">
+    <textarea id="url-input" rows="1" cols="50" placeholder="https://www.arteenz.com/cartoon4592.html"></textarea><br>
+    <button onclick="generateSource()">Generate Source</button>
+    <br><br>
+    <textarea id="viewSourceUrl" rows="1" cols="50" placeholder="view-source:https://www.arteenz.com/watch-4592.html"></textarea><br>
+    <button onclick="copyviewSourceUrl()">Copy</button>
+    
     <h1>Filter server_ch Methods</h1>
     <label for="html-code">Enter View Page Source HTML code:</label>
     <br>
@@ -158,6 +164,32 @@ button {
     </div>
     <br>
   <div>
+
+    <script>
+
+      function generateSource() {
+            const urlInput = document.getElementById('url-input');
+            const url = urlInput.value;
+            
+            // Replace the 'watch.php' with 'play.php' in the URL
+            const modifiedUrl = url.replace('cartoon', 'watch-');
+            
+            const viewSourceUrl = `view-source:${modifiedUrl}`;
+            
+            // Update the second textarea with the generated URL
+            document.getElementById("viewSourceUrl").value = viewSourceUrl;
+        }
+
+
+        
+        function copyviewSourceUrl() {
+            const viewSourceUrlInput = document.getElementById('viewSourceUrl');
+            viewSourceUrlInput.select();
+            document.execCommand('copy');
+        }
+
+    </script>
+    
 
     <script>
       function filterServerCh() {
